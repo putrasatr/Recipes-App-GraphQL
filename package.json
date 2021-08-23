@@ -1,0 +1,50 @@
+{
+  "name": "recipes-cli",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon — exec babel-node server.js",
+    "dev:cli": "node src/main.js",
+    "build": "babel server.js — out-file server-compiled.js",
+    "debugMode": "parallelshell 'npm run webpack-node' 'npm run webpack-server-browser'",
+    "start": "parallelshell 'npm run webpack-node' 'npm run webpack-server-browser' 'npm run nodemon'",
+    "nodemon": "nodemon — exec babel-node server.js",
+    "webpack-server-browser": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./webpack.browser.config.js --hot --port 8081",
+    "webpack-node": "./node_modules/webpack/bin/webpack.js --config ./webpack.node.config.js --progress --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-boost": "^0.4.9",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "firebase": "^8.9.1",
+    "firebase-admin": "^9.11.0",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
+    "graphql-typescript": "^0.3.0",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "uninstall": "0.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
+    "nodemon": "^2.0.12",
+    "parallelshell": "^3.0.1",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.0.0"
+  }
+}
