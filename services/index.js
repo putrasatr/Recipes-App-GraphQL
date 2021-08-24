@@ -6,6 +6,7 @@ export const getRecipes = (offset, limit, keyword) => {
         recipeReference.on("value", (result) => {
             const dataObject = result.val()
             const data = Object.keys(dataObject).map(o => Object.assign({ _id: o }, dataObject[o]));
+            console.log(data)
             resolve(data)
             recipeReference.off("value");
         }, (errorObject) => {
